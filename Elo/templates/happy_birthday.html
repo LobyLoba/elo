@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/happy_birthday.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="safe-area">
+  <div id="birthday-message" role="heading" aria-level="1">Happy Birthday Elo</div>
+  <img id="hover-image" src="/static/elo.jpeg" alt="Birthday celebration image">
+  <div id="cake">🎂</div>
+</div>
+
+<script>
+  function showPopup(id) {
+    const popup = document.getElementById(id);
+    popup.style.display = popup.style.display === 'none' || popup.style.display === '' ? 'block' : 'none';
+  }
+
+  function positionIcons() {
+    const icons = document.querySelectorAll('.icon-btn');
+    const safeArea = document.querySelector('.safe-area').getBoundingClientRect();
+
+    icons.forEach(icon => {
+      let x, y;
+      do {
+        x = Math.random() * (window.innerWidth - 100);
+        y = Math.random() * (window.innerHeight - 100);
+      } while (
+        x > safeArea.left - 100 && x < safeArea.right + 100 &&
+        y > safeArea.top - 100 && y < safeArea.bottom + 100
+      );
+
+      icon.style.left = `${x}px`;
+      icon.style.top = `${y}px`;
+    });
+  }
+
+  window.onload = positionIcons;
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('icon-btn')) {
+      document.querySelectorAll('.tooltip').forEach(el => el.style.display = 'none');
+    }
+  });
+</script>
+
+<!-- Music Icon Button with Tooltip -->
+<button id="music" class="icon-btn" aria-label="Open Spotify Playlist" onclick="showPopup('music-popup')">💽♪</button>
+<div id="music-popup" class="tooltip">
+  <a href="https://open.spotify.com/playlist/4ychFa621VKhQaYSKebsJV?si=67b67966ef1b4fd8" target="_blank">Spotify Playlist</a>
+  <div class="guitar">🎸</div>
+</div>
+
+<!-- Message Icon Button with Tooltip -->
+<button id="message" class="icon-btn" aria-label="Open Instagram" onclick="showPopup('message-popup')">📸</button>
+<div id="message-popup" class="tooltip">
+  <a href="https://www.instagram.com/your-link" target="_blank">Instagram</a>
+  <div>💌</div>
+</div>
+
+<!-- Blog Icon Button with Tooltip -->
+<button id="blog" class="icon-btn" aria-label="Open Blog" onclick="showPopup('blog-popup')">📖</button>
+<div id="blog-popup" class="tooltip">
+  <p>Check out our latest blog!</p>
+</div>
+
+<!-- Store Icon Button with Tooltip -->
+<button id="store" class="icon-btn" aria-label="Sign up for a massage" onclick="showPopup('store-popup')">💆🏽‍♀️</button>
+<div id="store-popup" class="tooltip">
+  <p>Sign up for a free massage!</p>
+</div>
+
+</body>
+</html>

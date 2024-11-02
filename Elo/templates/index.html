@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design with Elo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+  <script
+          src="{{ url_for('static', filename='frontend/script.js') }}">
+  </script>
+</head>
+<body>
+
+<!-- Menu bar container -->
+<div class="menu-bar">
+  <div class="icon-container">
+    <button id="music" class="icon-btn" aria-label="Open Spotify Playlist">💽♪</button>
+    <div class="tooltip">
+      <a href="https://open.spotify.com/playlist/4ychFa621VKhQaYSKebsJV?si=67b67966ef1b4fd8" target="_blank">Spotify Playlist</a>
+      <div class="guitar">🎸</div>
+    </div>
+  </div>
+
+  <div class="icon-container">
+    <button id="message" class="icon-btn" aria-label="Open Instagram">📸</button>
+    <div class="tooltip">
+      <a href="https://www.instagram.com/your-link" target="_blank">Instagram</a>
+      <div>💌</div>
+    </div>
+  </div>
+
+  <div class="icon-container">
+    <button id="blog" class="icon-btn" aria-label="Open Blog" onclick="openBlog()">📖</button>
+  </div>
+
+  <div class="icon-container">
+    <button id="store" class="icon-btn" aria-label="Sign up for a massage">💆🏽‍♀️</button>
+    <div class="tooltip">
+      <p>Sign up for a free massage!</p>
+    </div>
+  </div>
+</div>
+
+<div class="center-container">
+  <div id="message" role="heading" aria-level="1">Design with Elo</div>
+  <div id="emoji">➡️</div>
+</div>
+
+
+</body>
+</html>

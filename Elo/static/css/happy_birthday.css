@@ -1,0 +1,137 @@
+
+/* Background and general styles */
+body {
+  background-color: #825;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Safe area styles */
+.safe-area {
+  position: relative;
+  z-index: 1;
+}
+
+/* Birthday message styles */
+#birthday-message {
+  font-size: 3rem;
+  text-align: center;
+  animation: textToggle 1s infinite alternate;
+}
+
+/* Hover Image */
+#hover-image {
+  position: absolute;
+  top: 50px;
+  display: none;
+  width: 300px;
+  height: auto;
+  z-index: 2;
+}
+
+/* Show image on hover over the birthday message */
+#birthday-message:hover + #hover-image {
+  display: block;
+}
+
+#birthday-message, #cake {
+  display: inline-block;
+  vertical-align: middle;
+}
+#cake {
+  font-size: 2rem;
+  animation: blink 1s infinite;
+}
+
+/* Button styles */
+.icon-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  transition: transform 0.3s, color 0.3s;
+  color: white;
+  z-index: 0;
+}
+
+.icon-btn:hover {
+  color: #ffd700;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #e0e0e0; /* Light grey background for a retro feel */
+  padding: 15px;
+  border: 2px solid #888888; /* Darker grey border to mimic window frame */
+  border-radius: 4px; /* Slightly rounded corners */
+  color: black; /* Black text for contrast */
+  display: none;
+  text-align: center;
+  width: 220px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Slightly smaller shadow */
+  font-size: 1rem;
+  z-index: 1;
+  font-family: Arial, sans-serif; /* Classic font for that era */
+}
+
+/* Title bar */
+.tooltip::before {
+  content: 'Info';
+  display: block;
+  background: linear-gradient(to bottom, #0066cc, #004a99); /* Classic blue gradient */
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 1px solid #888888;
+}
+
+/* Close button in title bar */
+.tooltip::after {
+  content: '×';
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Link styles */
+.tooltip a {
+  color: #0066cc; /* Classic blue link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tooltip a:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes textToggle {
+  0% { font-family: monospace; }
+  100% { font-family: 'Pixelify Sans', Arial, sans-serif; }
+}
+
+@keyframes tilt {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.guitar {
+  animation: tilt 1s infinite;
+}
